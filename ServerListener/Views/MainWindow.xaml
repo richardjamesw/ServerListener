@@ -1,0 +1,34 @@
+﻿<Window x:Class="ServerListener.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ServerListener"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="500">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="100"/>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+
+    <TextBlock Margin="10" Grid.Row="0" Grid.Column="0">IP Address:</TextBlock>
+    <TextBox Text="{Binding txtIPAddress}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Width="100" Margin="10"/>
+
+    <TextBlock Grid.Row="1" Grid.Column="0" Margin="10">Port:</TextBlock>
+    <TextBox Text="{Binding txtPort}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Width="50" Margin="10"/>
+
+
+    <Button Content="Start" Command="{Binding StartCommand}" Grid.Row="2" Grid.Column="0" Width="50" Margin="10"/>
+    <Button Content="Stop" Command="{Binding StopCommand}" Grid.Row="2" Grid.Column="1" Width="50" HorizontalAlignment="Left" Margin="10"/>
+
+    <TextBox Name="tbStatus" Text="{Binding txtStatus}" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Margin="10" TextChanged="tbStatus_TextChanged"/>
+
+  </Grid>
+</Window>
